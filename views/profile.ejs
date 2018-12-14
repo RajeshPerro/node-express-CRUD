@@ -1,0 +1,48 @@
+
+<%- include('partials/header'); -%>
+
+<body>
+
+	<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <!-- profile grid -->
+      <div class="profile_card">
+      <!-- profile header -->
+        <div class="profile_header">
+          <div class="profile_pic">
+            <h3><%= data.firstName.charAt(0)+data.lastName.charAt(0)%></h3>
+          </div>
+          <div>
+            <h1><%= data.firstName + ' '+data.lastName %></h1>
+          </div>
+        </div>
+        <!-- profile body -->
+        <div class="profile_body">
+          <ul>
+            <li>
+              <span>Age: <%= data.age%></span>
+
+            </li>
+            <li>
+              <span>Team: <%= data.team%></span>
+
+            </li>
+            <li>
+              <span>Position: <%= data.position%></span>
+
+            </li>
+          </ul>
+        </div>
+        <!-- profile footer -->
+        <div class="profile_footer">
+          <div class="detils_btn" onclick="handleDetails()">
+             Details
+          </div>
+					<p style="display:none" class="bio"> Bio <br>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+    </div>
+
+	</div>
+</body>
+<%- include('partials/footer'); -%>

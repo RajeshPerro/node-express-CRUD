@@ -1,0 +1,75 @@
+<%- include('partials/header'); -%>
+  <body>
+    <div class="container">
+      <div class="alert alert-success alert-dismissible" style="display:none">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> you added a new player.
+      </div>
+      <h1 class="page-header text-center">Welcome to TEAM</h1>
+
+      <button class="btn btn-info" type="button" onclick="handleClick()" id="button-new"><i class="glyphicon glyphicon-plus"></i> NewPlayer</button>
+      <div class="row" id="newplayer" style="display:none;">
+      <div class="col-md-2">
+
+      </div>
+        <div class="col col-sm-12 col-md-8">
+          <form onsubmit="handleSubmit()">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" id="firstName" name="firstName" placeholder="firstname">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" name="lastName" id="lastName" placeholder="lastName">
+            </div>
+            <div class="form-group">
+              <label for="age">Age</label>
+              <input type="number" class="form-control" name="age" id="age" placeholder="18">
+            </div>
+            <div class="form-group">
+              <label for="position">Position</label>
+              <input type="text" class="form-control" name="position" id="position" placeholder="position">
+            </div>
+            <div class="form-group">
+              <label for="team">Team</label>
+              <input type="text" class="form-control" name="team" id="team" placeholder="team">
+            </div>
+            <button type="submit" class="btn btn-primary addplayer">Add player</button>
+          </form>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+      </div>
+      <div class="row">
+
+  		<table class="table">
+  			<thead>
+  				<th>#</th>
+  				<th>Name</th>
+  				<th>Team</th>
+  				<th>Action</th>
+  			</thead>
+  			<tbody>
+          <% for(var i=0; i < data.length; i++)
+           { %>
+  				<tr>
+  					<td><%= i+1%></td>
+  					<td><%= data[i].firstName +' '+ data[i].lastName%></td>
+  					<td><%= data[i].team%></td>
+  					<td>
+              <a class="btn btn-info" href="<%='/api/profile/'+data[i]._id%>">View</a>
+              <a class="btn btn-warning" href="<%='/api/profile/edit/'+data[i]._id%>">Edit</a>
+              <a class="btn btn-danger delete" data-userid="<%=data[i]._id %>">Delete</a>
+            </td>
+
+  				</tr>
+          <% } %>
+  			</tbody>
+
+  		</table>
+	</div>
+    </div>
+
+  </body>
+<%- include('partials/footer'); -%>
